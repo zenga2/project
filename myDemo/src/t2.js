@@ -1,1 +1,0 @@
-console.log('t2' + (+new Date))
