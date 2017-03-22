@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <style type="text/css">
+        html, body, div, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            position: relative;
+            overflow-y: hidden;
+            height: 400px;
+            transition: all 0s;
+        }
+
+        .inner {
+            width: 100%;
+            height: 930px;
+            background: #3e3e3e;
+        }
+
+        .scroll-bar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 3px;
+            background: #afafaf;
+        }
+
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="inner"><p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+        <p>ghskdgskgh kszdhgh skgjskdjgslg</p>
+    </div>
+    <div class="scroll-bar"></div>
+</div>
+
+<script>
+    let outer = document.querySelector('.outer')
+    let scrollBar = document.querySelector('.scroll-bar')
+
+    let clientH = outer.clientHeight
+    let scrollH = outer.scrollHeight
+    let scrollBarH = (clientH * clientH) / scrollH
+    scrollBar.style.height = scrollBarH + 'px'
+
+    let inner = document.querySelector('.inner')
+    let startY
+    let i = 0
+    let lastTLY = 0
+    let curTLY = 0
+
+    bindTouchEvent({
+        el: inner,
+        touchstart: function (event) {
+            let touch = event.changedTouches[0]
+            if (touch) {
+                startY = touch.pageY
+                console.log(`startY: ${startY}`)
+            }
+        },
+        touchmove: function (event) {
+            let touch = event.changedTouches[0]
+            if (touch) {
+                let disY = touch.pageY - startY
+                curTLY = lastTLY + disY
+
+                if (curTLY < (clientH - scrollH)) {
+                    curTLY = clientH - scrollH
+                } else if (curTLY > clientH / 2) {
+                    curTLY = clientH / 2
+                }
+
+                if ((i++) % 20 === 0) console.log(`disY: ${disY}`)
+
+                scrollBar.style.transform = `translateY(${-curTLY * (clientH / scrollH)}px)`
+                inner.style.transform = `translateY(${curTLY}px)`
+            }
+        },
+        touchend: function (event) {
+            let touch = event.changedTouches[0]
+            if (touch) {
+                lastTLY = curTLY
+                console.log(`lastTLY: ${lastTLY}`)
+            }
+        }
+    })
+
+
+    function bindTouchEvent(option) {
+        let el = option.el
+        let typeArr = ['touchstart', 'touchmove', 'touchend']
+
+        typeArr.forEach(function (eventType) {
+            el.addEventListener(eventType, option[eventType])
+        })
+
+    }
+
+</script>
+</body>
+</html>

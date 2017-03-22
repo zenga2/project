@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style type="text/css">
+        html, body, div, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-wrapper {
+            /*display: flex;*/
+            display: table;
+            padding: 14px 0;
+            height: 44px;
+            text-align: center;
+            width: 100%;
+            background: #1eade1;
+            animation: animName 5s forwards;
+        }
+
+        .info-wrapper .info-item {
+            display: table-cell;
+            position: relative;
+            box-sizing: border-box;
+            /*flex: 1;*/
+        }
+
+        .info-wrapper .info-item:first-child:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            border-right: 1px solid #2db8eb;
+            content: '';
+        }
+
+        .info-wrapper .info-item .num, .info-wrapper .info-item .text {
+            display: block;
+            line-height: 22px;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .info-wrapper .info-item .num {
+            font-size: 22px;
+        }
+
+        @keyframes animName {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(100%, 0, 0);
+            }
+        }
+
+        .test-font {
+            margin: 40px
+        }
+
+        .test-font span {
+            font-size: 24px;
+        }
+
+        .tt {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div class="info-wrapper">
+    <div class="info-item"><span class="num">0</span><span class="text">累计推广成功量</span></div>
+    <div class="info-item"><span class="num">0</span><span class="text">本月推广成功量</span></div>
+</div>
+<div class="test-font"><span>会计师东方航空是否健康还是快点发货</span></div>
+<div class="tt"></div>
+<div></div>
+<div></div>
+</body>
+</html>
