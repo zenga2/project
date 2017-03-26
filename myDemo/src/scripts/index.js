@@ -14,4 +14,3 @@ test().then(function (data) {
 	console.log("www");
     console.log(data);
 });
-

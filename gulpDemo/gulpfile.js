@@ -61,7 +61,7 @@ gulp.task('cssmin', function () {
     return gulp.src(minSrc.css)
         // 补充前缀
         .pipe(autoprefixer({
-            browsers: ['last 3 versions', 'Android >= 4.0', '>5%']
+            browsers: ['last 3 versions', 'Android >= 4.0', '>1%']
         }))
         // 压缩css文件
         .pipe(minifyCss())

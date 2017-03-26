@@ -59,21 +59,18 @@
             }
         }
 
-        .test-font {
-            margin: 40px
+        .test {
+            margin-top: 30px;
+            height: 0;
+            background: #c1c2c3;
+            transform: translate3d(0, 0, 0);
         }
 
-        .test-font span {
-            font-size: 24px;
-        }
-
-        .tt {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100px;
-            height: 100px;
-            background: #000;
+        .trans {
+            display: block;
+            height: 300px;
+            transition: all 3s;
+            transform: translateZ(0);
         }
     </style>
 </head>
@@ -82,9 +79,6 @@
     <div class="info-item"><span class="num">0</span><span class="text">累计推广成功量</span></div>
     <div class="info-item"><span class="num">0</span><span class="text">本月推广成功量</span></div>
 </div>
-<div class="test-font"><span>会计师东方航空是否健康还是快点发货</span></div>
-<div class="tt"></div>
-<div></div>
-<div></div>
+<div class="test" id="df"></div>
 </body>
 </html>

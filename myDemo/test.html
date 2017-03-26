@@ -1,0 +1,80 @@
+<!doctype>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<style type="text/css">
+    html, body, div, p {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        position: relative;
+        flex: 0 0 70px;
+        height: 70px;
+        border: 1px solid #00b38a;
+    }
+
+    .header .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 10px;
+    }
+
+    .header .logo p {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header .username {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 5px;
+    }
+
+    .main {
+        display: flex;
+        flex: 1;
+        margin-top: 5px;
+    }
+    .main .content {
+        flex: 1;
+        border: 1px solid #00b38a;
+        margin-right: 3px;
+    }
+    .main .aside {
+        flex: 0 0 200px;
+        width: 200px;
+        box-sizing: border-box;
+        border: 1px solid #00b38a;
+    }
+    .footer {
+        margin-top: 5px;
+        flex: 0 0 50px;
+        height: 50px;
+        box-sizing: border-box;
+        border: 1px solid #00b38a;
+    }
+</style>
+<body>
+<div class="header">
+    <div class="logo"><p>Logo</p></div>
+    <div class="username"><input type="text" placeholder="用户名"></div>
+</div>
+<div class="main">
+    <div class="content"></div>
+    <div class="aside"></div>
+</div>
+<div class="footer"></div>
+</body>
+</html>
