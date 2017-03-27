@@ -4,8 +4,8 @@
   "description": "some utils",
   "main": "index.js",
   "scripts": {
-    "build": "babel src-es6 -d dist/src-es6",
-    "lint": "eslint src-es6,test",
+    "build": "rm -rf dist/src-es6 && babel src-es6 -d dist/src-es6",
+    "lint": "eslint src-es6 && eslint src && eslint test",
     "test": "node test/index"
   },
   "author": "zeng",

@@ -1,6 +1,6 @@
 function paddingLeft(str, padStr, totalLen) {
     while (str.length < totalLen) {
-        str = padStr + str;
+        str = padStr + str
     }
 
     return str.slice(-totalLen)
@@ -8,7 +8,7 @@ function paddingLeft(str, padStr, totalLen) {
 
 function paddingRight(str, padStr, totalLen) {
     while (str.length < totalLen) {
-        str += padStr;
+        str += padStr
     }
 
     return str.slice(0, totalLen)

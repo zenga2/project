@@ -49,7 +49,7 @@
     4、package.json
       "scripts":{
          "build": "babel src -d dis -s"   (-d指定输出目录， -s生成source map文件)
-         "lint": "eslint src-es6"
+         "lint": "eslint src-es6 && eslint src && eslint test"
       }
 
 
