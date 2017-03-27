@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 function detect(ua, platform) {
     var os = {}, // jshint ignore:line
         browser = {}, // jshint ignore:line
@@ -11,10 +13,9 @@ function detect(ua, platform) {
         wp = ua.match(/Windows Phone ([\d.]+)/),
         chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/),
         firefox = ua.match(/Firefox\/([\d.]+)/),
-        ie = ua.match(/MSIE\s([\d.]+)/) || ua.match(/Trident\/[\d](?=[^\?]+).*rv:([0-9.].)/),
+        ie = ua.match(/MSIE\s([\d.]+)/) || ua.match(/Trident\/[\d](?=[^?]+).*rv:([0-9.].)/),
         webview = !chrome && ua.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
         safari = webview || ua.match(/Version\/([\d.]+)([^S](Safari)|[^M]*(Mobile)[^S]*(Safari))/);
-
 
     if (browser.webkit = !!webkit) browser.version = webkit[1];
 
