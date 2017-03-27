@@ -8,7 +8,7 @@ function helper(type) {
     }
 }
 
-let [isObject, isNull] = ['object', 'null'].map(function (type) {
+let [isPlainObject, isNull] = ['object', 'null'].map(function (type) {
     return helper(type)
 })
 
@@ -38,5 +38,5 @@ function each(obj, fn) {
     }
 }
 
-export {getType, isObject, isNull, isUndefined, isArray, isNumber, each}
-export default {getType, isObject, isNull, isUndefined, isArray, isNumber, each}
+export {getType, isPlainObject, isNull, isUndefined, isArray, isNumber, each}
+export default {getType, isPlainObject, isNull, isUndefined, isArray, isNumber, each}
