@@ -37,5 +37,5 @@ function detect(ua, platform) {
     return {os: os, browser: browser};
 }
 
-let obj = detect(navigator.userAgent, navigator.platform);
-export {obj}
+let [os, browser] = detect(navigator.userAgent, navigator.platform);
+export {os, browser};
