@@ -37,5 +37,4 @@ function detect(ua, platform) {
     return {os: os, browser: browser};
 }
 
-
 module.exports = detect(navigator.userAgent, navigator.platform);
