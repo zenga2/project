@@ -20,9 +20,7 @@ function isNumber(obj) {
     return typeof obj === 'number'
 }
 
-let isArray = Array.isArray || function (obj) {
-        return getType('obj') === 'array'
-    }
+let isArray = Array.isArray || helper('array')
 
 function each(obj, fn) {
     if (!obj) return

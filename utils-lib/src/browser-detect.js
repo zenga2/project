@@ -34,8 +34,8 @@ function detect(ua, platform) {
     }
     if (webview) browser.webview = true;
 
-    return {os: os, browser: browser}
+    return {os: os, browser: browser};
 }
 
 
-module.exports = detect(navigator.userAgent, navigator.platform)
+module.exports = detect(navigator.userAgent, navigator.platform);
