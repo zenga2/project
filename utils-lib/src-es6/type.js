@@ -71,21 +71,3 @@ export {
     isFunction,
     isPrimitive
 }
-
-export default {
-    getType,
-    isArray,
-    isRegExp,
-    isPlainObject,
-    isDate,
-    isBoolean,
-    isNull,
-    isNullOrUndefined,
-    isNumber,
-    isString,
-    isSymbol,
-    isUndefined,
-    isObject,
-    isFunction,
-    isPrimitive
-}

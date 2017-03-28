@@ -1,5 +1,4 @@
 import {isArray} from './type'
-import type from './type'
 
 function each(obj, fn) {
     if (!obj) return
@@ -17,4 +16,3 @@ function each(obj, fn) {
 
 export {each}
 export * from './type'
-export default Object.assign({each}, type)

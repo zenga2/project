@@ -15,4 +15,3 @@ function paddingRight(str, padStr, totalLen) {
 }
 
 export {paddingLeft, paddingRight}
-export default {paddingLeft, paddingRight}

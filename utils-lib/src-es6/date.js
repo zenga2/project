@@ -30,4 +30,3 @@ function formate(date, fmt) {
 }
 
 export {formate}
-export default {formate}
