@@ -1,26 +1,5 @@
-function getType(obj) {
-    return Object.prototype.toString.call(obj).slice(7).toLowerCase()
-}
-
-function helper(type) {
-    return function (obj) {
-        return getType(obj) === type
-    }
-}
-
-let [isPlainObject, isNull] = ['object', 'null'].map(function (type) {
-    return helper(type)
-})
-
-function isUndefined(obj) {
-    return typeof obj === 'undefined'
-}
-
-function isNumber(obj) {
-    return typeof obj === 'number'
-}
-
-let isArray = Array.isArray || helper('array')
+import {isArray} from './type'
+import type from './type'
 
 function each(obj, fn) {
     if (!obj) return
@@ -36,5 +15,6 @@ function each(obj, fn) {
     }
 }
 
-export {getType, isPlainObject, isNull, isUndefined, isArray, isNumber, each}
-export default {getType, isPlainObject, isNull, isUndefined, isArray, isNumber, each}
+export {each}
+export * from './type'
+export default Object.assign({each}, type)

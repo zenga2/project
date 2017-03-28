@@ -4,7 +4,8 @@
   "description": "stylus demo",
   "main": "index.js",
   "scripts": {
-  	"build": "stylus -w src/stylus/  -o dist/",
+    "build": "stylus -w src/stylus/  -o dist/",
+    "help": "stylus -i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zeng",
