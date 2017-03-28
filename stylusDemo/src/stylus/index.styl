@@ -3,22 +3,36 @@
 v-mediaDPR(cssMap)
   for dpr, $css in cssMap
     &
-      @media (-webkit-min-device-pixel-ratio: dpr), (min-device-pixel-ratio: dpr)
+      @media (-webkit-min-device-pixel-ratio: unquote(dpr)), (min-device-pixel-ratio: unquote(dpr))
         {$css}
-  
+
 p
   v-mediaDPR({
     '1': {color: #fff},
     '2': {color: #fff}
-  })  
+  })
 
 v-font-size()
   for dpr in 1.5 2 3
     @media (-webkit-min-device-pixel-ratio: dpr), (min-device-pixel-ratio: dpr)
       font-size: arguments * dpr
-  
+
 .sd
-   v-font-size: 20px
-   
+  v-font-size: 20px
+
 .gh
   @extend .sd
+
+.wwr
+  font-size: 20px
+  width: 100px
+  .gh
+    font-size: 20px
+    width: 100px
+
+.we
+  @extend .wwr
+  height: 10px
+
+
+// 所以.we下@extend .wwr相当于在声明时写成这样 .wwr, .we
