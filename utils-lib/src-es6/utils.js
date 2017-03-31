@@ -14,5 +14,18 @@ function each(obj, fn) {
     }
 }
 
-export {each}
+// 扩展对象
+function extendObj(targetObj, obj, isOverwrite) {
+    isOverwrite = isOverwrite || false;
+    var key;
+
+    for (key in obj) {
+        if (obj.hasOwnProperty(key) && (isOverwrite || !(key in targetObj))) {
+            targetObj[key] = obj[key];
+        }
+    }
+    return targetObj;
+}
+
+export {each, extendObj}
 export * from './type'
