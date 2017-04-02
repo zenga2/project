@@ -18,6 +18,7 @@ var size = require('gulp-size');
 var bytediff = require('gulp-bytediff');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
+var stripBom = require('gulp-stripbom')
 var pkg = require('./package.json');
 var minSrc = pkg.minSrc;
 var myUtils = require('./myUtils');
@@ -81,6 +82,13 @@ gulp.task('imagemin', function () {
         .pipe(bytediff.stop())
         .pipe(gulp.dest(minSrc.distRoot));
 });
+
+// 删除UTF-8文件中的BOM（如果有的话，因为windows中的记事本等编辑器在保存UTF-8文件时会添加BOM）
+gulp.task('removeBom', function () {
+    return gulp.src(minSrc.allFilesDev)
+        .pipe(stripBom())
+        .pipe(gulp.dest(minSrc.appRoot))
+})
 
 
 gulp.task('cleanTask', function () {

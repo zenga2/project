@@ -54,6 +54,13 @@ function isPrimitive(arg) {
         typeof arg !== 'object' && typeof arg !== 'function'
 }
 
+// 仅仅判断自有属性,同时如果参数为原始类型的值
+function isEmptyObj(obj) {
+    if (obj && typeof obj !== 'object') throw Error('Invalid argument: isEmptyObj need a object')
+
+    return Object.key(obj).length === 0
+}
+
 export {
     getType,
     isArray,
@@ -69,5 +76,6 @@ export {
     isUndefined,
     isObject,
     isFunction,
-    isPrimitive
+    isPrimitive,
+    isEmptyObj
 }

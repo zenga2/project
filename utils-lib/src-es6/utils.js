@@ -1,14 +1,16 @@
 import {isArray} from './type'
 
 function each(obj, fn) {
-    if (!obj) return
+    if (!obj || !fn) return
 
     if (isArray) {
         for (let i = 0, len = obj.length; i < len; i++) {
             if (fn.call(obj, obj[i], i) === false) return
         }
     } else {
-        for (let k in obj) {
+        let keys = Object.keys(obj)
+        for (let i = 0, len = keys.length; i < len; i++) {
+            let k = keys[i]
             if (fn.call(obj, obj[k], k) === false) return
         }
     }
@@ -17,14 +19,16 @@ function each(obj, fn) {
 // 扩展对象
 function extendObj(targetObj, obj, isOverwrite) {
     isOverwrite = isOverwrite || false;
-    var key;
+    let keys = Object.keys(obj)
 
-    for (key in obj) {
-        if (obj.hasOwnProperty(key) && (isOverwrite || !(key in targetObj))) {
-            targetObj[key] = obj[key];
+    for (let i = 0, len = keys.length; i < len; i++) {
+        let key = keys[i]
+        if (isOverwrite || !(key in targetObj)) {
+            targetObj[key] = obj[key]
         }
     }
-    return targetObj;
+
+    return targetObj
 }
 
 export {each, extendObj}
