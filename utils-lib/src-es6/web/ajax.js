@@ -25,7 +25,7 @@ class Ajax {
             let isTimeout = false
 
             xhr.open(method, url, true)
-            xhr.setHeader('Content-Type', contentTypes[option.uploadType])
+            xhr.setRequestHeader('Content-Type', contentTypes[option.uploadType])
             option.beforeSendFn && option.beforeSendFn()
             xhr.send(option.data)
 
@@ -42,6 +42,7 @@ class Ajax {
             }
 
             xhr.onreadystatechange = function () {
+                console.log(`status555: ${xhr.status}--${xhr.statusText}---readyState:${xhr.readyState}`)
                 if (isTimeout) return
 
                 if (xhr.readyState === 4) {
@@ -51,7 +52,9 @@ class Ajax {
             }
 
             function handle() {
-                if (xhr.status >= 200 || xhr.status < 300) {
+                console.log(`status0: ${xhr.status}`)
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(`status1: ${xhr.status}`)
                     try {
                         let response = JSON.parse(xhr.responseText)
                         resolve(response)
@@ -59,6 +62,7 @@ class Ajax {
                         reject({errorType: 'dataError', desc: "Not json"})
                     }
                 } else {
+                    console.log(`status2: ${xhr.status}`)
                     reject({
                         errorType: 'networkError',
                         desc: "",
@@ -70,13 +74,13 @@ class Ajax {
         })
     }
 
-    get(url, data, option) {
+    get(url, data, option = {}) {
         url = addDataToUrl(data, url)
 
         return this.initAjax('GET', url, option)
     }
 
-    post(url, data, option) {
+    post(url, data, option = {}) {
         option.data = option.uploadType === 'text' ? data : serialize(data)
 
         return this.initAjax('POST', url, option)
