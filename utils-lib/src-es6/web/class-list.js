@@ -1,5 +1,5 @@
 // polyfill for classList
-import {each} from '../utils'
+import {each} from '../util/utils'
 
 let slice = Array.prototype.slice
 

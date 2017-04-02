@@ -1,11 +1,11 @@
-import {each, isEmptyObj} from '../utils'
+import {serialize, addDataToUrl} from '../util/utils'
 
 // 只能进行异步处理（这是出于简单化的考虑，只实现最常用的功能）
 class Ajax {
     constructor() {
         this.xhr = new XMLHttpRequest()
         this.defaultOpt = {
-            timeout: '4000',
+            timeout: 4000,
             uploadType: 'default'
         }
         this.contentTypes = {
@@ -15,36 +15,46 @@ class Ajax {
     }
 
     initAjax(method, url, option) {
-        let {xhr, defaultOpt, contentTypes} = this
-        option = Object.assign({}, option, defaultOpt)
+        function clean() {
+            option.finishedFn && option.finishedFn()
+        }
 
-        xhr.open(method, url, true)
-        xhr.setHeader('Content-Type', contentTypes[option.uploadType])
-        xhr.send(option.data)
-
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
+            let {xhr, contentTypes} = this
+            option = Object.assign({}, option, this.defaultOpt)
             let isTimeout = false
+
+            xhr.open(method, url, true)
+            xhr.setHeader('Content-Type', contentTypes[option.uploadType])
+            option.beforeSendFn && option.beforeSendFn()
+            xhr.send(option.data)
 
             // 处理超时
             setTimeout(() => {
-                xhr.abort && xhr.abort()
+                xhr.abort()
 
                 isTimeout = true
                 reject({errorType: "timeoutError", "desc": ""})
             }, option.timeout)
+
+            xhr.onabort = function () {
+                clean()
+            }
 
             xhr.onreadystatechange = function () {
                 if (isTimeout) return
 
                 if (xhr.readyState === 4) {
                     handle()
+                    clean()
                 }
             }
+
             function handle() {
                 if (xhr.status >= 200 || xhr.status < 300) {
                     try {
-                        let data = JSON.parse(xhr.responseText)
-                        resolve(data)
+                        let response = JSON.parse(xhr.responseText)
+                        resolve(response)
                     } catch (e) {
                         reject({errorType: 'dataError', desc: "Not json"})
                     }
@@ -61,14 +71,7 @@ class Ajax {
     }
 
     get(url, data, option) {
-        if (data && !isEmptyObj(data)) {
-            let str = serialize(data)
-            if (url.indexOf('?') === -1) {
-                url += '?' + str
-            } else {
-                url += "&" + str
-            }
-        }
+        url = addDataToUrl(data, url)
 
         return this.initAjax('GET', url, option)
     }
@@ -78,13 +81,14 @@ class Ajax {
 
         return this.initAjax('POST', url, option)
     }
+
+    beforeSend(fn) {
+        this.defaultOpt.beforeSendFn = fn
+    }
+
+    finished(fn) {
+        this.defaultOpt.finishedFn = fn
+    }
 }
 
-// 将对象转为表单请求字符串
-function serialize(obj) {
-    let str = ''
-    each(obj, function (val, key) {
-        str += `${key}=${val}&`
-    })
-    return str && str.slice(0, -1)
-}
+export {Ajax}

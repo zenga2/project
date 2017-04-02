@@ -54,9 +54,9 @@ function isPrimitive(arg) {
         typeof arg !== 'object' && typeof arg !== 'function'
 }
 
-// 仅仅判断自有属性,同时如果参数为原始类型的值
+// 仅仅判断自有属性,同时如果参数不是Plain Object
 function isEmptyObj(obj) {
-    if (obj && typeof obj !== 'object') throw Error('Invalid argument: isEmptyObj need a object')
+    if (isPlainObject(obj)) throw Error('Invalid argument: function isEmptyObj need a Plain Object')
 
     return Object.key(obj).length === 0
 }

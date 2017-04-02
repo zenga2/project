@@ -1,4 +1,4 @@
-import {paddingLeft} from './string'
+import {paddingLeft} from './stringUtils'
 
 // fmt eg: 'yyyy-MM-dd hh:mm:ss'
 function formate(date, fmt) {
