@@ -48,7 +48,7 @@ apiRoutes.get('/ratings', function (req, res) {
 })
 
 app.use('/api', apiRoutes)
-app.use(express.static('./dist'))
+app.use(express.static('./static'))
 
 module.exports = app.listen('8080', function (err) {
     if (err) {

@@ -57,4 +57,3 @@ function addDataToUrl(data, url) {
 }
 
 export {each, extendObj, serialize, addDataToUrl}
-export * from './typeUtils'

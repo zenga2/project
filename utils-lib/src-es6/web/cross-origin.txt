@@ -1,0 +1,3 @@
+在服务器端增加两个相应头(其实只加第一个也可以)
+"Access-Control-Allow-Origin": "*"         // 或其他特定的域名
+"Access-Control-Allow-Methods":"POST,GET"  // 或其他方法
