@@ -16,7 +16,7 @@ class Ajax {
 
     initAjax(method, url, option) {
         function clean() {
-            option.finishedFn && option.finishedFn()
+            option.ajaxCompleteFn && option.ajaxCompleteFn()
         }
 
         return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ class Ajax {
 
             xhr.open(method, url, true)
             xhr.setRequestHeader('Content-Type', contentTypes[option.uploadType])
-            option.beforeSendFn && option.beforeSendFn()
+            option.ajaxStartFn && option.ajaxStartFn()
             xhr.send(option.data)
 
             // 处理超时
@@ -86,12 +86,12 @@ class Ajax {
         return this.initAjax('POST', url, option)
     }
 
-    beforeSend(fn) {
-        this.defaultOpt.beforeSendFn = fn
+    ajaxStart(fn) {
+        this.defaultOpt.ajaxStartFn = fn
     }
 
-    finished(fn) {
-        this.defaultOpt.finishedFn = fn
+    ajaxComplete(fn) {
+        this.defaultOpt.ajaxCompleteFn = fn
     }
 }
 

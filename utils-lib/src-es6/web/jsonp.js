@@ -19,7 +19,7 @@ class Jsonp {
         option = Object.assign({}, option, this.defaultOpt)
 
         function clean() {
-            option.finishedFn && option.finishedFn()
+            option.ajaxCompleteFn && option.ajaxCompleteFn()
         }
 
         return new Promise((resolve, reject) => {
@@ -57,16 +57,16 @@ class Jsonp {
                 reject({errorType: "unknowError", "desc": "", event})
                 clean()
             }
-            option.beforeSendFn && option.beforeSendFn()
+            option.ajaxStartFn && option.ajaxStartFn()
             document.head.appendChild(el)
         })
     }
 
-    beforeSend(fn) {
-        this.defaultOpt.beforeSendFn = fn
+    ajaxStart(fn) {
+        this.defaultOpt.ajaxStartFn = fn
     }
 
-    finished(fn) {
-        this.defaultOpt.finishedFn = fn
+    ajaxComplete(fn) {
+        this.defaultOpt.ajaxCompleteFn = fn
     }
 }
