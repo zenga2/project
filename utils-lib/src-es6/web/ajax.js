@@ -24,9 +24,10 @@ class Ajax {
             option = Object.assign({}, option, this.defaultOpt)
             let isTimeout = false
 
+            option.ajaxStartFn && option.ajaxStartFn()
+
             xhr.open(method, url, true)
             xhr.setRequestHeader('Content-Type', contentTypes[option.uploadType])
-            option.ajaxStartFn && option.ajaxStartFn()
             xhr.send(option.data)
 
             // 处理超时
