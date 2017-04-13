@@ -56,12 +56,17 @@
 
   5、.eslintrc.js配置模板
       module.exports = {
-        root: true,
-        parser: "babel-eslint",
-        parserOptions: "module",
-        extends: "standard",
-        rules: {
-        }
+          root: true,
+          parser: 'babel-eslint',
+          parserOptions: {
+              sourceType: 'module'
+          },
+          extends: "standard",
+          plugins: [],
+          rules: {
+              'space-before-function-paren': 0,
+              'indent': 0
+          }
       }
 
   6、.eslintignore 配置忽略的文件
