@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/angular.js"></script>
+    <script src="../js/app.js"></script>
+</head>
+<body id="app">
+<span draggable>Drag ME</span>
+<input type="text" ng-model="name">
+<p>Hello {{name}}</p>
+
+<div ng-controller="grentCtrl">Hello {{name}}</div>
+<div ng-controller="listCtrl">
+    <ol>
+        <li ng-repeat="name in names"></li>
+    </ol>
+</div>
+
+<div ng-controller="myCtrl">
+    Hello {{name}}!
+    <button ng-click="action()">
+        OK
+    </button>
+</div>
+
+<div ng-init="list = ['Chrome', 'Safari', 'Firefox', 'IE'] ">
+    <input ng-model="list" ng-list> <br>
+    <input ng-model="list" ng-list> <br>
+    <pre>list={{list}}</pre> <br>
+    <ol>
+        <li ng-repeat="item in list">
+            {{item}}
+        </li>
+    </ol>
+</div>
+</body>
+</html>
