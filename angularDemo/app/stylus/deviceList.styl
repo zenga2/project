@@ -1,0 +1,155 @@
+@import "./base.styl"
+
+#device-list
+  display: flex
+  flex-direction: column
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  font-size: 14px
+  color: #333
+  background: #f0f1f5
+  & *
+    box-sizing: border-box
+  & ::-webkit-scrollbar
+    display: none
+  .header
+    position: relative
+    height: 44px
+    background: #39f
+    .title
+      margin: 0
+      text-align: center
+      line-height: 44px
+      font-size: 16px
+      font-weight: normal
+      color: #fff
+    .back
+      position: absolute
+      left: 5px
+      top: 50%
+      margin-top: -15px
+      width: 30px
+      height: 30px
+      background: url(../images/back.png) center center no-repeat
+      background-size: 100% 100%
+      cursor: pointer
+  .content
+    overflow: auto
+    flex: 1
+    .device-list
+      margin: 0
+      padding: 0
+      .device-item
+        margin-bottom: 10px
+        padding: 0 10px
+        list-style: none
+        background: #fff
+        .title
+          position: relative
+          margin: 0
+          border-1px(#d3d3d3)
+          line-height: 45px
+          font-size: 16px
+          font-weight: normal
+          color: #39f
+          cursor: pointer
+          &:before
+            position: absolute
+            top: 50%
+            right: 10px
+            margin-left: 10px
+            width: 16px
+            height: 16px
+            transform: translateY(-50%)
+            background: url(../images/right.png) center center no-repeat
+            background-size: 16px 16px
+            content: ''
+        .desc
+          padding-top: 5px
+          font-size: 10px
+          & > *
+            line-height: 18px
+          .version
+            position: relative
+            padding-right: 20%
+            padding-bottom: 5px
+            font-size: 0
+            border-1px(#d3d3d3)
+            &:after
+              border-top-style: dashed
+            .software, .hardware, .rom
+              display: inline-block
+              width: 50%
+              font-size: 10px
+            .rom
+              width: 100%
+            .network
+              position: absolute
+              top: 0
+              right: 10px
+              &.offline
+                .network-icon
+                  background: red
+              .network-icon
+                display: block
+                width: 20px
+                height: 20px
+                border-radius: 50%
+                background: #50E3C2
+              .text
+                font-size: 10px
+          .add-line
+            position: relative
+            border-1px(#d3d3d3)
+            &:after
+              border-top-style: dashed
+            padding: 10px 0
+            .bucket-list
+              font-size: 0
+              .bucket-item
+                display: inline-block
+                width: 50%
+                font-size: 12px
+                .icon
+                  display: inline-block
+                  margin-left: 5px
+                  padding: 0 5px
+                  line-height: 15px
+                  font-size: 10px
+                  border-radius: 3px
+                  color: #fff
+                  background: #50E3C2
+            .add-line-btn
+              position: absolute
+              top: 10px
+              right: 10px
+              width: 42px
+              line-height: 42px
+              border-radius: 5px
+              text-align: center
+              font-size: 14px
+              color: #fff
+              background: #50E3C2
+              cursor: pointer
+          .exception-desc
+            margin-top: 10px
+            font-size: 0
+            .desc-item
+              display: inline-block
+              width: 50%
+              font-size: 12px
+              .text
+                display: inline-block
+                padding: 0 8px
+                line-height: 18px
+                border-radius: 5px
+                color: #fff
+                background: red
+    .empty-tip
+      margin-top: 30%
+      width: 100%
+      text-align: center

@@ -1,0 +1,236 @@
+@import "./base.styl"
+
+#device-filter
+  display: flex
+  flex-direction: column
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  font-size: 14px
+  background: #f0f1f5
+  & *
+    box-sizing: border-box
+  & ::-webkit-scrollbar
+    display: none
+  .header
+    position: relative
+    height: 44px
+    background: #39f
+    .back
+      position: absolute
+      left: 5px
+      top: 50%
+      margin-top: -15px
+      width: 30px
+      height: 30px
+      background: url(../images/back.png) center center no-repeat
+      background-size: 100% 100%
+      cursor: pointer
+    .search
+      position: absolute
+      display: flex
+      right: 16px
+      top: 50%
+      width: 50%
+      margin-top: -15px
+      border-radius: 3px
+      background: #fff
+      > *
+        vertical-align: top
+      .search-icon
+        display: inline-block
+        width: 30px
+        height: 30px
+        background: url(../images/search.png) center center no-repeat
+        background-size: 20px 20px
+      .input-box
+        overflow: hidden
+        flex: 1
+        margin-right: 10px
+        padding: 0
+        border: none
+        height: 30px
+        border-radius: 3px
+        outline: none
+  .content
+    overflow: auto
+    flex: 1
+    & > *
+      padding: 0 16px
+      background: #fff
+      margin-bottom: 10px
+    .address
+      .item
+        position: relative
+        line-height: 40px
+        border-1px(#999)
+        cursor: pointer
+        .value
+          position: absolute
+          right: 35px
+          color: #39f
+        &:last-child
+          border-none()
+        &:before
+          position: absolute
+          top: 50%
+          right: 5px
+          margin-left: 10px
+          width: 16px
+          height: 16px
+          transform: translateY(-50%)
+          background: url(../images/right.png) center center no-repeat
+          background-size: 16px 16px
+          content: ''
+    .timeout
+      .item
+        display: flex
+        padding: 10px 0
+        &:last-child
+          .left
+            line-height: 30px
+        .left
+          width: 120px
+          text-align: right
+          font-size: 0
+          .text
+            display: block
+            padding-right: 15px
+            font-size: 14px
+          .tip
+            font-size: 10px
+        .center
+          flex: 1
+          display: flex
+          justify-content: space-between
+          text-align: center
+          font-size: 0
+          .time
+            display: inline-block
+            width: 30px
+            height: 30px
+            border-radius: 5px
+            line-height: 30px
+            font-size: 14px
+            background: #ccc
+            cursor: pointer
+            &.on
+              color: #fff
+              background: #39f
+        .right
+          padding-left: 12px
+          padding-right: 8px
+          line-height: 30px
+    .exception-filter
+      margin-bottom: 0
+      font-size: 0
+      .exception-item
+        display: inline-block
+        margin-right: 5%
+        margin-bottom: 10px
+        border-radius: 5px
+        text-align: center
+        line-height: 30px
+        font-size: 14px
+        background: #ccc
+        &:first-child
+          margin-top: 10px
+        &:nth-child(2), &:nth-child(4), &:nth-child(7), &:nth-child(10), &:nth-child(13)
+          margin-right: 0
+        &.one
+          width: 30%
+        &.two
+          width: 65%
+        &.on
+          color: #fff
+          background: #39f
+
+    .select-all
+      padding: 5px 16px;
+      .checkbox
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        width: 18px;
+        height: 18px;
+      .text
+        padding-left: 6px;
+        vertical-align: top;
+        line-height: 18px;
+        font-size: 14px;
+  .footer
+    text-align: center
+    line-height: 44px
+    font-size: 18px
+    color: #fff
+    background: #39f
+  .layer-wrapper
+    .mask
+      z-index: 100
+      position: fixed
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      opacity: 0
+      transition: all 350ms
+      background: rgba(0, 0, 0, .75)
+    .layer
+      z-index: 101
+      position: fixed
+      left: 0
+      right: 0
+      bottom: 0
+      height: 50%
+      transform: translate3d(0, 100%, 0)
+      transition: all 350ms
+      background: #fff
+      .title
+        overflow: hidden
+        position: relative
+        border-1px(#d9d9d9)
+        height: 45px
+        background: #fff
+        .text
+          position: absolute
+          left: 50%
+          transform: translateX(-50%)
+          line-height: 45px
+          font-size: 16px
+        .cancel, .delete
+          position: absolute
+          line-height: 45px
+        .cancel
+          right: 15px
+        .delete
+          left: 15px
+          color: #39f
+      .list
+        overflow: auto
+        position: absolute
+        top: 45px
+        left: 0
+        right: 0
+        bottom: 0
+        margin: 0
+        padding: 0
+        .item
+          position: relative
+          text-align: center
+          list-style: none
+          line-height: 38px
+          border-1px(#d9d9d9)
+          color: #666
+          &.on
+            color: #fff
+            background: #39f
+            opacity: .5
+
+    &.slide
+      .layer
+        transform: translate3d(0, 0, 0)
+      .mask
+        opacity: 1

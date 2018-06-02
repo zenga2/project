@@ -85,7 +85,7 @@ gulp.task('devServer', function () {
 
     // 打开浏览器
     // exec('start chrome "http://localhost:8080"', function(){});
-    open('http://localhost:8080/dist/index.html', 'chrome', function () {
+    open('http://localhost:8080/app/index.html', 'chrome', function () {
     });
 });
 

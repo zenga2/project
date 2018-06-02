@@ -1,0 +1,71 @@
+#open-cdb
+  display: flex
+  flex-direction: column
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  font-size: 14px
+  background: #fff
+  color: #666
+  & *
+    box-sizing: border-box
+  & ::-webkit-scrollbar
+    display: none
+  .open-cdb-header
+    position: relative
+    height: 44px
+    background: #39f
+    .title
+      margin: 0
+      text-align: center
+      line-height: 44px
+      font-size: 16px
+      font-weight: normal
+      color: #fff
+    .back
+      position: absolute
+      left: 5px
+      top: 50%
+      margin-top: -15px
+      width: 30px
+      height: 30px
+      background: url(../images/back.png) center center no-repeat
+      background-size: 100% 100%
+      cursor: pointer
+  .open-cdb-content
+    flex: 1
+    padding: 16px
+    .select-barn
+      .select-barn-title
+        text-align: center
+        line-height: 32px
+        margin-bottom: 15px
+      .select-barn-content
+        text-align: center
+        font-size: 0
+        .barn-item
+          display: inline-block
+          margin-bottom: 20px
+          width: 50%
+          line-height: 26px
+          font-size: 16px
+          .text
+            display: inline-block
+            width: 56px
+            background: #ccc
+          &.on
+            .text
+              color: #fff
+              background: #39f
+  .open-cdb-footer
+    text-align: center
+    line-height: 44px
+    font-size: 18px
+    color: #fff
+    background: #39f
+  .disabled
+    color: #999
+    background: #d3d3d3

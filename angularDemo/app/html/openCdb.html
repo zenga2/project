@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylus/openCdb.css">
+</head>
+<body>
+<div id="open-cdb">
+    <div class="open-cdb-header">
+        <i class="back"></i>
+        <h1 class="title">出仓</h1>
+    </div>
+    <div class="open-cdb-content">
+        <div class="select-barn">
+            <div class="select-barn-title">选择仓道</div>
+            <div id="open-cdb-select-box" class="select-barn-content">
+                <div data-index="1" class="barn-item"><span class="text">1</span></div>
+                <div data-index="2" class="barn-item"><span class="text">2</span></div>
+                <div data-index="3" class="barn-item"><span class="text">3</span></div>
+                <div data-index="4" class="barn-item"><span class="text">4</span></div>
+                <div data-index="5" class="barn-item"><span class="text">5</span></div>
+                <div data-index="6" class="barn-item"><span class="text">6</span></div>
+                <div data-index="7" class="barn-item"><span class="text">7</span></div>
+                <div data-index="8" class="barn-item"><span class="text">8</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="open-cdb-footer disabled">
+        <div class="confirm-btn">确定</div>
+    </div>
+</div>
+
+<script>
+    var selectBox = document.getElementById('open-cdb-select-box')
+    selectBox.addEventListener('click', function (e) {
+        var target = e.target;
+        var classList = target.classList;
+
+        if (classList.contains('text')) {
+            target = target.parentNode;
+            classList = target.classList;
+        }
+
+        if (classList.contains('barn-item')) {
+            var lastSelectedEl = document.querySelector('#open-cdb .barn-item.on');
+            lastSelectedEl && lastSelectedEl.classList.remove('on');
+
+            classList.add('on')
+        }
+    })
+
+</script>
+</body>
+</html>

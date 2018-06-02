@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylus/deviceList.css">
+</head>
+<body>
+<div id="device-list">
+    <div class="header">
+        <i class="back"></i>
+        <h1 class="title">设备列表</h1>
+    </div>
+    <div class="content">
+        <ul style="display: none;" class="device-list">
+            <li class="device-item">
+                <h2 class="title border-1px"><span>机器编号：</span><span>000006000003</span></h2>
+                <div class="desc">
+                    <div class="address"><span>绿茶店：</span><span>广东省深圳市南山区欢乐颂三楼绿茶餐厅</span></div>
+                    <div class="version border-1px">
+                        <div class="software"><span>软件版本号：</span><span class="value">1.9.3</span></div>
+                        <div class="hardware"><span>硬件版本号：</span><span class="value">116.44.36.11</span>
+                        </div>
+                        <div class="rom"><span>ROM版本号：</span><span class="value">V1.0.5(20161215)_LD_S_NONE</span>
+                        </div>
+                        <div class="network">
+                            <span class="network-icon"></span>
+                            <span class="text">在线</span>
+                        </div>
+                    </div>
+                    <div class="add-line border-1px">
+                        <div class="bucket-list">
+                            <div class="bucket-item">
+                                <span>桶1 : </span>
+                                <span>36</span>
+                                <span class="icon">正常</span>
+                            </div>
+                            <div class="bucket-item">
+                                <span>桶2 : </span>
+                                <span>45</span>
+                                <span class="icon">正常</span>
+                            </div>
+                            <div class="bucket-item">
+                                <span>桶3 : </span>
+                                <span>12</span>
+                                <span class="icon">正常</span>
+                            </div>
+                            <div class="bucket-item">
+                                <span>桶4 : </span>
+                                <span>67</span>
+                                <span class="icon">正常</span>
+                            </div>
+                        </div>
+                        <div class="add-line-btn">补线</div>
+                    </div>
+                    <div class="exception-desc">
+                        <div class="desc-item">
+                            <sapn class="text">仓道异常个数 :</sapn>
+                        </div>
+                        <div class="desc-item">
+                            <sapn class="text">近24小时售线失败次数 :</sapn>
+                        </div>
+                        <div class="desc-item">
+                            <sapn class="text">近24小时断网次数 :</sapn>
+                        </div>
+                        <div class="desc-item">
+                            <sapn class="text">近24小时借入失败次数 :</sapn>
+                        </div>
+                        <div class="desc-item">
+                            <sapn class="text">可借充电宝数量 :</sapn>
+                        </div>
+                        <div class="desc-item">
+                            <sapn class="text">回收仓数量 :</sapn>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <p class="empty-tip">未查到相应的异常设备</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+#open-cdb {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  font-size: 14px;
+  background: #fff;
+  color: #666;
+}
+#open-cdb * {
+  box-sizing: border-box;
+}
+#open-cdb ::-webkit-scrollbar {
+  display: none;
+}
+#open-cdb .open-cdb-header {
+  position: relative;
+  height: 44px;
+  background: #39f;
+}
+#open-cdb .open-cdb-header .title {
+  margin: 0;
+  text-align: center;
+  line-height: 44px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+}
+#open-cdb .open-cdb-header .back {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  background: url("../images/back.png") center center no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+#open-cdb .open-cdb-content {
+  flex: 1;
+  padding: 16px;
+}
+#open-cdb .open-cdb-content .select-barn .select-barn-title {
+  text-align: center;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+#open-cdb .open-cdb-content .select-barn .select-barn-content {
+  text-align: center;
+  font-size: 0;
+}
+#open-cdb .open-cdb-content .select-barn .select-barn-content .barn-item {
+  display: inline-block;
+  margin-bottom: 20px;
+  width: 50%;
+  line-height: 26px;
+  font-size: 16px;
+}
+#open-cdb .open-cdb-content .select-barn .select-barn-content .barn-item .text {
+  display: inline-block;
+  width: 56px;
+  background: #ccc;
+}
+#open-cdb .open-cdb-content .select-barn .select-barn-content .barn-item.on .text {
+  color: #fff;
+  background: #39f;
+}
+#open-cdb .open-cdb-footer {
+  text-align: center;
+  line-height: 44px;
+  font-size: 18px;
+  color: #fff;
+  background: #39f;
+}
+#open-cdb .disabled {
+  color: #999;
+  background: #d3d3d3;
+}

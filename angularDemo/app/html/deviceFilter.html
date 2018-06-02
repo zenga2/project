@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../stylus/deviceFilter.css">
+</head>
+<body>
+<div id="device-filter">
+    <div class="header">
+        <i class="back"></i>
+        <div class="search">
+            <i class="search-icon"></i><input class="input-box" type="search" placeholder="编号/商户名"/>
+        </div>
+    </div>
+    <div class="content">
+        <div class="address">
+            <div class="item border-1px">
+                <span>省份</span>
+                <span class="value">广东省</span>
+            </div>
+            <div class="item border-1px">
+                <span>城市</span>
+                <span class="value">深圳市</span>
+            </div>
+            <div class="item border-1px">
+                <span>县/区</span>
+                <span class="value">南山区</span>
+            </div>
+        </div>
+        <div class="timeout">
+            <div class="item">
+                <div class="left">
+                    <span class="text">离线超</span><span class="tip">(未设定开关机时间的设备)</span>
+                </div>
+                <div class="center">
+                    <span class="time">0</span><span class="time on">16</span>
+                    <span class="time">24</span><span class="time">36</span>
+                </div>
+                <div class="right">小时</div>
+            </div>
+            <div class="item">
+                <div class="left">
+                    <span class="text">未定时开机超</span><span class="tip">(设定了开关机时间的设备)</span>
+                </div>
+                <div class="center">
+                    <span class="time on">0</span><span class="time">2</span>
+                    <span class="time">6</span><span class="time">12</span>
+                </div>
+                <div class="right">小时</div>
+            </div>
+            <div class="item">
+                <div class="left">
+                    <span class="text">距离上次维护超</span><span class="tip"></span>
+                </div>
+                <div class="center">
+                    <span class="time">7</span><span class="time on">14</span>
+                    <span class="time">21</span><span class="time">30</span>
+                </div>
+                <div class="right">小时</div>
+            </div>
+        </div>
+        <div class="exception-filter">
+            <div class="exception-item one on">仓道异常</div>
+            <div class="exception-item two">近24小时售线失败超3次</div>
+            <div class="exception-item one">未完全维护</div>
+            <div class="exception-item two">近24小时断网次数超5次</div>
+            <div class="exception-item one">禁止售线</div>
+            <div class="exception-item one">禁止借充电宝</div>
+            <div class="exception-item one on">线桶异常</div>
+            <div class="exception-item one">全仓坏仓</div>
+            <div class="exception-item one">急缺充电线</div>
+            <div class="exception-item one">预补充电线</div>
+            <div class="exception-item one">回收仓异常</div>
+            <div class="exception-item one">回收仓归还</div>
+            <div class="exception-item one">急缺充电宝</div>
+        </div>
+        <div class="select-all">
+            <input class="checkbox" type="checkbox"/><span class="text">异常全选</span>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="confirm-btn">确定</div>
+    </div>
+
+    <div id="province-layer" class="layer-wrapper" style="display: none;">
+        <div class="mask"></div>
+        <div class="layer">
+            <div class="title border-1px">
+                <span class="delete">删除</span>
+                <span class="text">选择省份</span>
+                <span id="cancel" class="cancel">取消</span>
+            </div>
+            <ul class="list">
+                <li class="item border-1px">广东省</li>
+                <li class="item border-1px">上海市</li>
+                <li class="item border-1px  on">北京市</li>
+                <li class="item border-1px">湖北省</li>
+                <li class="item border-1px">湖南省</li>
+                <li class="item border-1px">广东省</li>
+                <li class="item border-1px">上海市</li>
+                <li class="item border-1px">北京市</li>
+                <li class="item border-1px">湖北省</li>
+                <li class="item border-1px">湖南省</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    var provinceLayer = document.getElementById('province-layer')
+    var cancelBtn = document.getElementById('cancel')
+    setTimeout(function () {
+        provinceLayer.style.display = ''
+        // 强制浏览器重绘
+        var scrollTop = provinceLayer.scrollTop
+        provinceLayer.classList.add('slide')
+    }, 2000)
+    cancelBtn.addEventListener('click', function () {
+        provinceLayer.classList.remove('slide')
+        setTimeout(function () {
+            provinceLayer.style.display = 'none'
+        }, 400)
+    })
+</script>
+</body>
+</html>

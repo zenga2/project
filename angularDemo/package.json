@@ -7,6 +7,7 @@
     "dev": "gulp build",
     "server": "gulp devServer",
     "clean": "gulp clean",
+    "stylus": "stylus -w app/stylus/  -o app/stylus/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -47,6 +48,7 @@
     "gulp-stripbom": "^1.0.4",
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.1",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "stylus": "^0.54.5"
   }
 }

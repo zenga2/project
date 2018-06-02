@@ -1,0 +1,32 @@
+border-1px($color)
+  &:after
+    left: 0
+    bottom: 0
+    width: 100%
+    border-top: 1px solid $color
+    display: block
+    position: absolute
+    content: ''
+
+border-none()
+  &:after
+    display: none
+
+scaleBorder($minDPR, $scale, $className, $pd)
+  @media (-webkit-min-device-pixel-ratio: $minDPR), (min-device-pixel-ratio: $minDPR)
+    .{$className}
+      &::{$pd}
+        transform: $scale
+
+scaleBottomBorder($className)
+  for $pd in before after
+    scaleBorder(1.5, scaleY(0.7), $className, $pd)
+    scaleBorder(2, scaleY(0.5), $className, $pd)
+    scaleBorder(3, scaleY(0.33333333333333), $className, $pd)
+    scaleBorder(4, scaleY(0.25), $className, $pd)
+
+scaleBottomBorder(border-1px)
+
+body, html {
+  margin: 0
+}

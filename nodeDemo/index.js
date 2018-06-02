@@ -5,7 +5,8 @@ let httpServer = http.createServer((req, res) => {
     res.write('buffer data')
     setTimeout(() => {
         res.end('Hello World!\n')
-    }, 10 * 1000)
+    }, 10 * 1000);
 })
 httpServer.listen(5555, '127.0.0.1')
 console.log('Server running at http://127.0.0.1:5555/')
+
